@@ -15,8 +15,12 @@ export default function PokemonCard({ pokeId }) {
   return (
     <>
       {pokemon ? (
-        <div className="card" onClick={test}>
-          <img src={pokemon.sprites.front_default} alt="Pokemon"></img>
+        <div className="card">
+          <img
+            className="pokemon-image"
+            src={pokemon.sprites.other["official-artwork"].front_default}
+            alt="Pokemon"
+          ></img>
           <div className="pokemon-name">
             {capitalizePokemonName(pokemon.name)}
           </div>
@@ -36,15 +40,13 @@ export default function PokemonCard({ pokeId }) {
   );
 }
 
-function test() {
-  alert("Test");
-}
-
 function capitalizePokemonName(name) {
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
+// This function probably needs to be changed 💀
 function displayPokemonType(type) {
+  // Yandere dev coding right here
   switch (type) {
     case "normal":
       return (
